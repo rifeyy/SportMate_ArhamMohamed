@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/homeScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sport_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/homeRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header Card -->
+        <LinearLayout
+            android:id="@+id/headerCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="22dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp">
+
+            <TextView
+                android:id="@+id/txtWelcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to SportMate"
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:textColor="@color/sport_primary_dark" />
+
+            <TextView
+                android:id="@+id/txtSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Find matches, create events, scan QR codes, explore nearby fields and chat with SportMate AI."
+                android:textSize="15sp"
+                android:textColor="@color/sport_text_muted"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="3dp" />
+
+            <TextView
+                android:id="@+id/txtBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sport activity companion"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/sport_primary"
+                android:background="@drawable/bg_button_secondary"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+        <!-- Quick Actions -->
+        <TextView
+            android:id="@+id/txtQuickActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quick Actions"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/sport_text_dark"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/actionsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnFindMatch"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Find Match"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_primary"
+                app:backgroundTint="@null" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCreateEvent"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Create Event"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/sport_primary_dark"
+                android:background="@drawable/bg_button_secondary"
+                app:backgroundTint="@null"
+                android:layout_marginTop="12dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnNearbyFields"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Nearby Fields"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/sport_primary_dark"
+                android:background="@drawable/bg_button_secondary"
+                app:backgroundTint="@null"
+                android:layout_marginTop="12dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnMyActivities"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="My Activities"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/sport_primary_dark"
+                android:background="@drawable/bg_button_secondary"
+                app:backgroundTint="@null"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+        <!-- Smart Tools -->
+        <TextView
+            android:id="@+id/txtSmartTools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Smart Tools"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/sport_text_dark"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/smartToolsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnQrScanner"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="QR Code Scanner"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/sport_primary_dark"
+                android:background="@drawable/bg_button_secondary"
+                app:backgroundTint="@null" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAiRecommendations"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="AI Recommendations"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/sport_primary_dark"
+                android:background="@drawable/bg_button_secondary"
+                app:backgroundTint="@null"
+                android:layout_marginTop="12dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAiChat"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="AI Chat Assistant"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_primary"
+                app:backgroundTint="@null"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,157 @@
+package com.example.sportmate_arhammohamed.activities;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sportmate_arhammohamed.R;
+import com.example.sportmate_arhammohamed.network.ApiClient;
+import com.example.sportmate_arhammohamed.network.ApiService;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class RegisterActivity extends AppCompatActivity {
+
+    private EditText edtRegisterName;
+    private EditText edtRegisterEmail;
+    private EditText edtRegisterPassword;
+    private EditText edtConfirmPassword;
+    private Button btnRegister;
+    private TextView txtBackToLogin;
+
+    private ApiService apiService;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+
+        edtRegisterName = findViewById(R.id.edtRegisterName);
+        edtRegisterEmail = findViewById(R.id.edtRegisterEmail);
+        edtRegisterPassword = findViewById(R.id.edtRegisterPassword);
+        edtConfirmPassword = findViewById(R.id.edtConfirmPassword);
+        btnRegister = findViewById(R.id.btnRegister);
+        txtBackToLogin = findViewById(R.id.txtBackToLogin);
+
+        apiService = ApiClient.getClient().create(ApiService.class);
+
+        btnRegister.setOnClickListener(v -> createAccount());
+
+        txtBackToLogin.setOnClickListener(v -> finish());
+    }
+
+    private void createAccount() {
+        String name = edtRegisterName.getText().toString().trim();
+        String email = edtRegisterEmail.getText().toString().trim();
+        String password = edtRegisterPassword.getText().toString().trim();
+        String confirmPassword = edtConfirmPassword.getText().toString().trim();
+
+        if (TextUtils.isEmpty(name)) {
+            edtRegisterName.setError("Enter your full name");
+            edtRegisterName.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(email)) {
+            edtRegisterEmail.setError("Enter your email");
+            edtRegisterEmail.requestFocus();
+            return;
+        }
+
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            edtRegisterEmail.setError("Enter a valid email");
+            edtRegisterEmail.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            edtRegisterPassword.setError("Enter your password");
+            edtRegisterPassword.requestFocus();
+            return;
+        }
+
+        if (password.length() < 6) {
+            edtRegisterPassword.setError("Password must be at least 6 characters");
+            edtRegisterPassword.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(confirmPassword)) {
+            edtConfirmPassword.setError("Confirm your password");
+            edtConfirmPassword.requestFocus();
+            return;
+        }
+
+        if (!password.equals(confirmPassword)) {
+            edtConfirmPassword.setError("Passwords do not match");
+            edtConfirmPassword.requestFocus();
+            return;
+        }
+
+        btnRegister.setEnabled(false);
+
+        Map<String, String> body = new HashMap<>();
+        body.put("name", name);
+        body.put("email", email);
+        body.put("password", password);
+
+        apiService.registerUser(body).enqueue(new Callback<Map<String, Object>>() {
+            @Override
+            public void onResponse(
+                    Call<Map<String, Object>> call,
+                    Response<Map<String, Object>> response
+            ) {
+                btnRegister.setEnabled(true);
+
+                if (response.isSuccessful()) {
+                    Toast.makeText(
+                            RegisterActivity.this,
+                            "Account created successfully",
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+
+                } else if (response.code() == 409) {
+                    Toast.makeText(
+                            RegisterActivity.this,
+                            "Account already exists",
+                            Toast.LENGTH_LONG
+                    ).show();
+
+                } else {
+                    Toast.makeText(
+                            RegisterActivity.this,
+                            "Register failed",
+                            Toast.LENGTH_LONG
+                    ).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Map<String, Object>> call, Throwable t) {
+                btnRegister.setEnabled(true);
+
+                Toast.makeText(
+                        RegisterActivity.this,
+                        "Connection error: " + t.getMessage(),
+                        Toast.LENGTH_LONG
+                ).show();
+            }
+        });
+    }
+}

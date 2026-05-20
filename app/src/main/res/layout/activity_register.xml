@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sport_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/sport_primary_dark"
+            android:gravity="center"
+            android:layout_marginTop="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Join SportMate and start finding sport activities."
+            android:textSize="15sp"
+            android:textColor="@color/sport_text_muted"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="28dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/edtRegisterName"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Full name"
+                android:singleLine="true"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/sport_text_dark"
+                android:textColorHint="@color/sport_text_muted"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_input" />
+
+            <EditText
+                android:id="@+id/edtRegisterEmail"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Email"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"
+                android:textSize="14sp"
+                android:textColor="@color/sport_text_dark"
+                android:textColorHint="@color/sport_text_muted"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="14dp" />
+
+            <EditText
+                android:id="@+id/edtRegisterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Password"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                android:textColor="@color/sport_text_dark"
+                android:textColorHint="@color/sport_text_muted"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="14dp" />
+
+            <EditText
+                android:id="@+id/edtConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Confirm password"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                android:textColor="@color/sport_text_dark"
+                android:textColorHint="@color/sport_text_muted"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="14dp" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Create Account"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_primary"
+                android:backgroundTint="@null"
+                android:layout_marginTop="22dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtBackToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account? Login"
+            android:textSize="14sp"
+            android:textColor="@color/sport_primary"
+            android:textStyle="bold"
+            android:layout_marginTop="22dp"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+</ScrollView>

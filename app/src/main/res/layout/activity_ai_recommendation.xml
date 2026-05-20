@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/recommendationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI Sport Recommendations"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#0B6623"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get recommended sport events based on sport, level and location."
+            android:textSize="15sp"
+            android:textColor="#555555"
+            android:layout_marginBottom="24dp" />
+
+        <EditText
+            android:id="@+id/edtSport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sport: box, football, running..."
+            android:inputType="text"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/edtLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Level: beginner / intermediate / advanced"
+            android:inputType="text"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/edtLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Location: nador, casa, maarif..."
+            android:inputType="text"
+            android:layout_marginBottom="18dp" />
+
+        <Button
+            android:id="@+id/btnGetRecommendations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get AI Recommendations"
+            android:layout_marginBottom="20dp" />
+
+        <LinearLayout
+            android:id="@+id/resultsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</ScrollView>

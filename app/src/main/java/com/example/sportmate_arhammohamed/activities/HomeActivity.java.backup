@@ -1,0 +1,65 @@
+package com.example.sportmate_arhammohamed.activities;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sportmate_arhammohamed.R;
+
+public class HomeActivity extends AppCompatActivity {
+
+    private Button btnFindMatch;
+    private Button btnCreateEvent;
+    private Button btnNearbyFields;
+    private Button btnMyActivities;
+    private Button btnQrScanner;
+    private Button btnAiRecommendations;
+    private Button btnAiChat;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
+        btnFindMatch = findViewById(R.id.btnFindMatch);
+        btnCreateEvent = findViewById(R.id.btnCreateEvent);
+        btnNearbyFields = findViewById(R.id.btnNearbyFields);
+        btnMyActivities = findViewById(R.id.btnMyActivities);
+        btnQrScanner = findViewById(R.id.btnQrScanner);
+        btnAiRecommendations = findViewById(R.id.btnAiRecommendations);
+        btnAiChat = findViewById(R.id.btnAiChat);
+
+        btnFindMatch.setOnClickListener(v -> {
+            startActivity(new Intent(this, EventsActivity.class));
+        });
+
+        btnCreateEvent.setOnClickListener(v -> {
+            startActivity(new Intent(this, CreateEventActivity.class));
+        });
+
+        btnNearbyFields.setOnClickListener(v -> {
+            startActivity(new Intent(this, NearbyFieldsActivity.class));
+        });
+
+        btnMyActivities.setOnClickListener(v -> {
+            startActivity(new Intent(this, MyActivitiesActivity.class));
+        });
+
+        btnQrScanner.setOnClickListener(v -> {
+            startActivity(new Intent(this, QrScannerActivity.class));
+        });
+
+        btnAiRecommendations.setOnClickListener(v -> {
+            startActivity(new Intent(this, AiRecommendationActivity.class));
+        });
+
+        // ✅ AI Chat Assistant
+        // يفتح AiChatActivity مباشرة
+        // وفيها زر ☰ لعرض conversations القديمة
+        btnAiChat.setOnClickListener(v -> {
+            startActivity(new Intent(this, AiChatActivity.class));
+        });
+    }
+}

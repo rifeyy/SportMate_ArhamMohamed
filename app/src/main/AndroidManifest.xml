@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Internet for backend, Firebase, Google Maps, Gemini AI -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- GPS Location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Camera for QR Code Scanner -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Microphone for Voice Search -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Camera hardware declaration -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <!-- Queries for Google Maps app and Speech Recognition -->
+    <queries>
+        <package android:name="com.google.android.apps.maps" />
+
+        <intent>
+            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="SportMate_ArhamMohamed"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SportMate_ArhamMohamed">
+
+        <!-- Register -->
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:exported="false" />
+
+        <!-- MVP4 - Conversations List like ChatGPT Recents -->
+        <activity
+            android:name=".activities.ConversationsActivity"
+            android:exported="false" />
+
+        <!-- MVP4 - AI Chat Assistant -->
+        <activity
+            android:name=".activities.AiChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- MVP4 - AI Recommendations -->
+        <activity
+            android:name=".activities.AiRecommendationActivity"
+            android:exported="false" />
+
+        <!-- MVP3 - QR Scanner -->
+        <activity
+            android:name=".activities.QrScannerActivity"
+            android:exported="false" />
+
+        <!-- MVP3 - Google Maps -->
+        <activity
+            android:name=".activities.MapActivity"
+            android:exported="false" />
+
+        <!-- My Activities -->
+        <activity
+            android:name=".activities.MyActivitiesActivity"
+            android:exported="false" />
+
+        <!-- Nearby Fields -->
+        <activity
+            android:name=".activities.NearbyFieldsActivity"
+            android:exported="false" />
+
+        <!-- Create Event -->
+        <activity
+            android:name=".activities.CreateEventActivity"
+            android:exported="false" />
+
+        <!-- Event Details -->
+        <activity
+            android:name=".activities.EventDetailsActivity"
+            android:exported="false" />
+
+        <!-- Events / Find Match -->
+        <activity
+            android:name=".activities.EventsActivity"
+            android:exported="false" />
+
+        <!-- Home -->
+        <activity
+            android:name=".activities.HomeActivity"
+            android:exported="false" />
+
+        <!-- Login -->
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false" />
+
+        <!-- Splash Launcher -->
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyABKHKrfTyqGh5UdK-NEYazKmHEDpW3WhY" />
+
+    </application>
+
+</manifest>
